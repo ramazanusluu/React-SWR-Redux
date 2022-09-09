@@ -1,0 +1,20 @@
+.bg-danger {
+    background-color: #df2027 !important;
+  }
+  .navbar-hover:hover {
+    background-color: #f7272f;
+  }
+  .active:hover {
+    color: black !important;
+    transition: 1s;
+  }
+  .btn-danger {
+    background-color: #df2027 !important;
+    box-shadow: none !important;
+    border: none;
+  }
+  .nav-item {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
