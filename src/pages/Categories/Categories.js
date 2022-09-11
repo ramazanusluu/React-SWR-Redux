@@ -1,29 +1,19 @@
 import React from "react";
 import Loading from "../../components/Loading/Loading";
 import useSWR from "swr";
-import axios from "axios";
-
-// const fetcher = (...args) => fetch(...args).then((res) => res.json());
-const fetcher = (url) => axios.get(url).then((res) => res.data);
 
 function Categories() {
   const { data, isValidating, error } = useSWR(
     "https://store.vrunibex.com/mobile2/mbProduct/CategoryList",
-    fetcher,
     {
       revalidateOnFocus: false,
       revalidateIfStale: false,
     }
   );
-  if (error) return <div>failed to load</div>;
-  if (!data)
-    return (
-      <div>
-        <Loading />
-      </div>
-    );
+  if (error) return <div>failed to load, {error.message}</div>;
+  if (!data) return <Loading />;
   console.log(data);
-  console.log("isValidating", isValidating);
+  console.log("isValidating:", isValidating);
   //isValidating veriyi yakalama islemi devam ederken true tamamlandığında false olur.
   return (
     <div>
