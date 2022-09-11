@@ -1,0 +1,25 @@
+.card {
+    border-radius: 0px;
+  }
+  .product-card {
+    border: 1px solid #ddd !important;
+  }
+  .card-head {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+  .btn-incele {
+    margin: 0;
+    padding: 10px;
+    border: none;
+    background-color: white;
+    border-bottom: 3px solid #df2027;
+    width: 100%;
+    margin-top: 24px;
+    color: #df2027;
+    font-weight: bold;
+  }
+  .btn-incele:hover {
+    background-color: #f7272f;
+    color: white;
+  }
+  
