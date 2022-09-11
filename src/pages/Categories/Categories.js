@@ -1,6 +1,7 @@
 import React from "react";
 import Loading from "../../components/Loading/Loading";
 import useSWR from "swr";
+import CategoryCard from "../../components/CategoryCard/CategoryCard";
 
 function Categories() {
   const { data, isValidating, error } = useSWR(
@@ -17,7 +18,14 @@ function Categories() {
   //isValidating veriyi yakalama islemi devam ederken true tamamlandığında false olur.
   return (
     <div>
-      <h1>Category List</h1>
+      <div className="container my-5">
+        <div className="row">
+          {data.Result.TreeList.map(
+            (item, key) =>
+              item.ID < 11 && <CategoryCard key={key} item={item} />
+          )}
+        </div>
+      </div>
     </div>
   );
 }
