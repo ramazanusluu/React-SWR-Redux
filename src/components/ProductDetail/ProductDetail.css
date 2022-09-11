@@ -1,0 +1,11 @@
+.basket {
+  background-color: #df2027;
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 10px 60px;
+  letter-spacing: 1px;
+}
+.basket:hover {
+  background-color: #f7272f;
+}
