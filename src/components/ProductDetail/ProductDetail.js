@@ -1,12 +1,20 @@
 import React from "react";
 import ImageGallery from "react-image-gallery";
+import { useDispatch } from "react-redux/es/exports";
 import "./ProductDetail.css";
+import { addToCard } from "../../redux/card/cardSlice";
 
 function ProductDetail({ data }) {
   const images = data.Result.ImageSetList[0].ImageList.map((url) => ({
     original: url.Path,
   }));
   const item = data.Result;
+
+  const dispatch = useDispatch();
+
+  const handleAddToCard = (item) => {
+    dispatch(addToCard(item));
+  };
   return (
     <div>
       {/* <h1>Product Detail - {product}</h1> */}
@@ -54,10 +62,7 @@ function ProductDetail({ data }) {
                   : item.ActualPriceToShowOnScreen}
                 TL
               </h2>
-              <button
-                type="button"
-                className="basket"
-              >
+              <button onClick={() => handleAddToCard(item)} className="basket">
                 SEPETE EKLE
               </button>
             </div>
