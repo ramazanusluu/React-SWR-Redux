@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 
 const initialState = {
   cardItems: [],
@@ -17,9 +18,18 @@ export const cardSlice = createSlice({
 
       if (itemIndex >= 0) {
         state.cardItems[itemIndex].cardQuantity += 1;
+        toast.info(
+          `increased ${state.cardItems[itemIndex].DisplayName} card quantitiy`,
+          {
+            position: "bottom-left",
+          }
+        );
       } else {
         const tempProduct = { ...action.payload, cardQuantity: 1 };
         state.cardItems.push(tempProduct);
+        toast.success(`${action.payload.DisplayName} sepete eklendi`, {
+          position: "bottom-left",
+        });
       }
     },
   },

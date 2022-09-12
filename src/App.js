@@ -8,10 +8,14 @@ import SubCategories from "./pages/SubCategories/SubCategories";
 import Products from "./pages/Products/Products";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import ShoppingCard from "./pages/ShoppingCard/ShoppingCard";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"
+
 
 function App() {
   return (
     <>
+      <ToastContainer />
       <Header />
       <Navbar />
       <Routes>
