@@ -7,6 +7,7 @@ import Categories from "./pages/Categories/Categories";
 import SubCategories from "./pages/SubCategories/SubCategories";
 import Products from "./pages/Products/Products";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
+import ShoppingCard from "./pages/ShoppingCard/ShoppingCard";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           path="/products/:product_id/product-detail/:product"
           element={<ProductDetails />}
         />
+        <Route path="/card" element={<ShoppingCard />} />
       </Routes>
     </>
   );
