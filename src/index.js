@@ -5,6 +5,8 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { SWRConfig } from "swr";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
 
 // const fetcher = (...args) => fetch(...args).then((res) => res.json());
 // const fetcher = (url) => axios.get(url).then((res) => res.data);
@@ -18,7 +20,9 @@ root.render(
           fetcher: (...args) => fetch(...args).then((res) => res.json()),
         }}
       >
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
       </SWRConfig>
     </BrowserRouter>
   </>
