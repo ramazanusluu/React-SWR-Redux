@@ -35,9 +35,19 @@ export const cardSlice = createSlice({
       }
       localStorage.setItem("cardItems", JSON.stringify(state.cardItems));
     },
+    removeFromCard(state, action) {
+      const nextCardItems = state.cardItems.filter(
+        (cardItem) => cardItem.ID !== action.payload.ID
+      );
+      state.cardItems = nextCardItems;
+      localStorage.setItem("cardItems", JSON.stringify(state.cardItems));
+      toast.error(`${action.payload.DisplayName} sepetten çıkarıldı`, {
+        position: "bottom-left",
+      });
+    },
   },
 });
 
-export const { addToCard } = cardSlice.actions;
+export const { addToCard, removeFromCard } = cardSlice.actions;
 
 export default cardSlice.reducer;

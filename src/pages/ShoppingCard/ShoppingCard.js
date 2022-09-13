@@ -1,10 +1,17 @@
 import React from "react";
 import "./ShoppingCard.css";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { removeFromCard } from "../../redux/card/cardSlice";
 
 function ShoppingCard() {
   const card = useSelector((state) => state.card);
+
+  const dispatch = useDispatch();
+
+  const handleRemoveFromCard = (item) => {
+    dispatch(removeFromCard(item));
+  };
   return (
     <>
       <div className="card-header"></div>
@@ -83,7 +90,7 @@ function ShoppingCard() {
                         </td>
                         <td>
                           <button
-                            onClick={() => {}}
+                            onClick={() => handleRemoveFromCard(item)}
                             className="btn btn-outline-danger"
                           >
                             Kaldır
