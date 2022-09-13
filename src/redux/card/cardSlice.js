@@ -67,9 +67,37 @@ export const cardSlice = createSlice({
       }
       localStorage.setItem("cardItems", JSON.stringify(state.cardItems));
     },
+    increaseCard(state, action) {
+      // const itemIndex = state.cardItems.findIndex(
+      //   (cardItem) => cardItem.ID === action.payload.ID
+      // );
+      state.cardItems.map((cardItem) => {
+        if (
+          cardItem.ID === action.payload.ID &&
+          cardItem.cardQuantity <
+            cardItem.SelectionList[0].OptionList[0].Quantity
+        ) {
+          cardItem.cardQuantity += 1;
+          toast.info(`${action.payload.DisplayName} sayısı 1 arttırıldı`, {
+            position: "bottom-left",
+          });
+        } else if (
+          cardItem.ID === action.payload.ID &&
+          cardItem.cardQuantity ===
+            cardItem.SelectionList[0].OptionList[0].Quantity
+        ) {
+          toast.error(`${action.payload.DisplayName} stokta kalmadı`, {
+            position: "bottom-left",
+          });
+        }
+        return true;
+      });
+      localStorage.setItem("cardItems", JSON.stringify(state.cardItems));
+    },
   },
 });
 
-export const { addToCard, removeFromCard, decreaseCard } = cardSlice.actions;
+export const { addToCard, removeFromCard, decreaseCard, increaseCard } =
+  cardSlice.actions;
 
 export default cardSlice.reducer;

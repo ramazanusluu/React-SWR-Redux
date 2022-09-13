@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   removeFromCard,
   decreaseCard,
-  addToCard,
+  increaseCard,
 } from "../../redux/card/cardSlice";
 
 function ShoppingCard() {
@@ -20,7 +20,7 @@ function ShoppingCard() {
     dispatch(decreaseCard(item));
   };
   const handleIncreaseCard = (item) => {
-    dispatch(addToCard(item));
+    dispatch(increaseCard(item));
   };
   return (
     <>
