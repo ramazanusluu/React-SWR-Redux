@@ -6,6 +6,7 @@ import {
   removeFromCard,
   decreaseCard,
   increaseCard,
+  clearCard,
 } from "../../redux/card/cardSlice";
 
 function ShoppingCard() {
@@ -21,6 +22,9 @@ function ShoppingCard() {
   };
   const handleIncreaseCard = (item) => {
     dispatch(increaseCard(item));
+  };
+  const handleClearCard = () => {
+    dispatch(clearCard());
   };
   return (
     <>
@@ -116,7 +120,12 @@ function ShoppingCard() {
                     ))}
                   </tbody>
                 </table>
-                <button className="btn btn-outline-dark">Temizle</button>
+                <button
+                  onClick={() => handleClearCard()}
+                  className="btn btn-outline-dark"
+                >
+                  Temizle
+                </button>
               </div>
               <div className="col-md-4">
                 <h5>SİPARİŞ ÖZETİ</h5>

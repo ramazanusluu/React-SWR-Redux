@@ -94,10 +94,22 @@ export const cardSlice = createSlice({
       });
       localStorage.setItem("cardItems", JSON.stringify(state.cardItems));
     },
+    clearCard(state, action) {
+      state.cardItems = [];
+      toast.success("Alış veriş sepeti Temizlendi", {
+        position: "bottom-left",
+      });
+      localStorage.setItem("cardItems", JSON.stringify(state.cardItems));
+    },
   },
 });
 
-export const { addToCard, removeFromCard, decreaseCard, increaseCard } =
-  cardSlice.actions;
+export const {
+  addToCard,
+  removeFromCard,
+  decreaseCard,
+  increaseCard,
+  clearCard,
+} = cardSlice.actions;
 
 export default cardSlice.reducer;
