@@ -1,0 +1,31 @@
+.card-header {
+  width: 100%;
+  display: table;
+  background: #293033;
+  min-height: 130px;
+}
+.card-router:hover {
+  color: #f7272f !important;
+}
+.bilgi {
+  color: #505050;
+}
+.bilgi-span {
+  color: black;
+}
+.card-item-text {
+  font-size: 16px;
+}
+.col-md-4 {
+  border-left: 1px solid #293033;
+}
+.total-price {
+  border-bottom: solid 1px #9c9c9c !important;
+}
+.label {
+  font-size: 18px;
+  font-weight: bold;
+}
+.indirim:hover {
+  color: #f7272f !important;
+}
