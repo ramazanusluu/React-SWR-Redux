@@ -2,7 +2,11 @@ import React from "react";
 import "./ShoppingCard.css";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { removeFromCard } from "../../redux/card/cardSlice";
+import {
+  removeFromCard,
+  decreaseCard,
+  addToCard,
+} from "../../redux/card/cardSlice";
 
 function ShoppingCard() {
   const card = useSelector((state) => state.card);
@@ -11,6 +15,12 @@ function ShoppingCard() {
 
   const handleRemoveFromCard = (item) => {
     dispatch(removeFromCard(item));
+  };
+  const handleDecreaseCard = (item) => {
+    dispatch(decreaseCard(item));
+  };
+  const handleIncreaseCard = (item) => {
+    dispatch(addToCard(item));
   };
   return (
     <>
@@ -66,11 +76,17 @@ function ShoppingCard() {
                         </td>
                         <td>
                           <div className="btn-group">
-                            <button className="btn" onClick={() => {}}>
+                            <button
+                              className="btn"
+                              onClick={() => handleDecreaseCard(item)}
+                            >
                               -
                             </button>
                             <button className="btn">{item.cardQuantity}</button>
-                            <button className="btn" onClick={() => {}}>
+                            <button
+                              className="btn"
+                              onClick={() => handleIncreaseCard(item)}
+                            >
                               +
                             </button>
                           </div>
