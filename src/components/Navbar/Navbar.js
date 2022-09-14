@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 // import Sidebar from "../Sidebar";
 import "./Navbar.css";
+import { useSelector } from "react-redux";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-
+  const card = useSelector((state) => state.card);
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-danger">
@@ -64,7 +65,7 @@ function Navbar() {
                   <button className="btn btn-danger fs-6 active">
                     <i className="fa-solid fa-basket-shopping"></i>
                     <span className="translate-middle badge rounded-pill bg-light text-dark rounded-circle">
-                      0
+                      {card.cardItems.length}
                     </span>
                   </button>
                 </Link>

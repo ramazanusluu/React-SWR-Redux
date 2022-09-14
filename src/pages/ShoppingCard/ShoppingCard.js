@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./ShoppingCard.css";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -7,12 +7,16 @@ import {
   decreaseCard,
   increaseCard,
   clearCard,
+  getTotals,
 } from "../../redux/card/cardSlice";
 
 function ShoppingCard() {
   const card = useSelector((state) => state.card);
-
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getTotals());
+  }, [card]);
 
   const handleRemoveFromCard = (item) => {
     dispatch(removeFromCard(item));
@@ -131,15 +135,18 @@ function ShoppingCard() {
                 <h5>SİPARİŞ ÖZETİ</h5>
                 <div>
                   <i className="fa-solid fa-cart-shopping fs-2"></i>
-                  <span className="fs-6"> Toplam ürün</span>
+                  <span className="fs-6">
+                    {" "}
+                    Toplam {card.cardTotalQuantity} ürün
+                  </span>
                 </div>
                 <div className="total-price mt-3">
                   <span className="label">Ödenecek Tutar : </span>
-                  <span className="label">{card.cardTotalAmount} TL</span>
+                  <span className="label">{card.cardTotalAmount.toFixed(3)} TL</span>
                 </div>
                 <div className="total-price mt-3">
                   <span className="label">Ürünler : </span>
-                  <span className="label">{card.cardTotalAmount} TL</span>
+                  <span className="label">TL</span>
                 </div>
                 <div className="total-price mt-3">
                   <span className="label">Kargo Ücreti : </span>
